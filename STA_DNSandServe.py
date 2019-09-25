@@ -12,7 +12,7 @@ class DNSandServe:
   def start(self,ip,addr):
          
     server = SlimDNS.SlimDNSServer(ip, addr)
-    print('--01-->(STA DNS Serve) IP and URL\n\tIP: ',ip,'\n\tURL: ',addr,'.local')
+    print('--01-->(STA DNS Serve) IP and URL\n\tIP: ',ip,'\n\tURL: http://',addr,'.local')
     #两个线程
     _thread.start_new_thread( ajaxwebserve.ajaxWebserv, (ip,))
     #-------------------------------------------------------------
@@ -21,4 +21,5 @@ class DNSandServe:
     _thread.start_new_thread(server.run_forever,())
     #-------------------------------------------------------------
     print('--02-->(STA DNS Serve) STA webserve have setted')
+
 
